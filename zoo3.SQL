@@ -146,5 +146,16 @@ from game ga  left join goal go on ga.id = go.matchid group by mdate, team1, tea
 
 
 
+14. 
+Given a Weather table,
+write a SQL query to find all dates' Ids with higher temperature compared to its previous (yesterday's) dates.
 
 
+select w2.id from weather w1 , weather w2  
+where w2.Temperature > w1.Temperature 
+and to_days(w2.RecordDate) - to_days(w1.RecordDate) = 1;
+
+SELECT w1.Id FROM Weather w1, Weather w2
+WHERE subdate(w1.Date, 1)=w2.Date AND w1.Temperature>w2.Temperature
+                                                                                           
+                                                                                           
